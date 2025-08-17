@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link,useNavigate } from "react-router-dom";
+
 
 export default function Dashboard() {
   const [soldierCount, setSoldierCount] = useState(0);
@@ -16,12 +18,20 @@ export default function Dashboard() {
     };
     fetchCounts();
   }, []);
-
+const [user,setUser] = useState(null);
+const navigate = useNavigate();
   return (
+    
     <div className="min-h-screen bg-gray-100">
       {/* Top Nav */}
-      <nav className="bg-white shadow py-4 px-6 flex justify-between items-center">
-        <h1 className="font-bold text-xl">MILITARIX Dashboard</h1>
+      <nav className="bg-pale shadow py-2 px-6 flex justify-between items-center">
+        <Link to= "/"><h1 className="font-bold text-xl">MILITARIX </h1></Link>
+        <div>
+          {user ?<div></div> :<div className="flex items-center gap-4"><span><p onClick={()=>navigate('/Account')}>Profile</p> </span> <button className="text-blue-600">Login</button></div>}
+          
+          
+        </div>
+        
       </nav>
 
       {/* Dashboard Cards */}
