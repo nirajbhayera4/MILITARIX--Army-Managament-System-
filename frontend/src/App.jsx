@@ -1,10 +1,12 @@
-import Dashboard from "./components/dashboard";
-function App() {
+import Dashboard from "./pages/dashboard";
+import { Route, Routes } from "react-router-dom";
+const App = () => {
   return (
-    <div className="App">
-      <Dashboard />
+    <div>
+      <Routes>
+        <Route path='/' element={<Dashboard/>} />
+      </Routes>
     </div>
-  );
+  )
 }
-
 export default App;
