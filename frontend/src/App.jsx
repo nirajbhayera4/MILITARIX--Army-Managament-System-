@@ -1,14 +1,26 @@
-import Dashboard from "./pages/dashboard";
-import { Route, Routes } from "react-router-dom";
 import React from "react";
-import "./index.css"; // Assuming you have Tailwind CSS set up
-const App = () => {
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+// Pages
+import Dashboard from "./pages/dashboard";
+import SoldierList from "./pages/SoldierList";
+import Addsoldier from "./pages/Addsoldier";
+import Editsoldier from "./pages/Editsoldier";
+
+function App() {
   return (
-    <div>
+    <Router>
       <Routes>
-        <Route path='/' element={<Dashboard/>} />
+        {/* Main Dashboard */}
+        <Route path="/" element={<Dashboard />} />
+
+        {/* Soldier Management */}
+        <Route path="/soldiers" element={<SoldierList />} />
+        <Route path="/Addsoldier" element={<Addsoldier />} />
+        <Route path="/Editsoldier" element={<Editsoldier />} />
       </Routes>
-    </div>
-  )
+    </Router>
+  );
 }
+
 export default App;
